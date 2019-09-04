@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabCalculator
 {
-    class NegativeBaseNumberFloatingExponentException : Exception
+    public class NegativeBaseNumberFloatingExponentException : Exception
     {
         public double number { get; private set; }
 

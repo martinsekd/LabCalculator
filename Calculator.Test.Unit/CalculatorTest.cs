@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -134,7 +135,6 @@ namespace Calculator.Test.Unit
             Assert.That(sum, Is.EqualTo(d));
         }
 
-        private double square = Math.Sqrt(10);
         [TestCase(0, 2, 0)]
         [TestCase(10, -2, 0.01)]
         [TestCase(0, 0, 1)]
@@ -145,6 +145,13 @@ namespace Calculator.Test.Unit
         {
             double sum = uut.Power(a, b);
             Assert.That(sum, Is.EqualTo(d));
+        }
+
+        [TestCase(-1, 0.2)]
+        [TestCase(-5, 1.5)]
+        public void Power_NegativexNonIntegerexp_ThrowsNegativeBaseNumberFloatingExponentException(double x, double exp)
+        {
+            Assert.That(() => uut.Power(x,exp), Throws.TypeOf<LabCalculator.NegativeBaseNumberFloatingExponentException>());
         }
 
         [TestCase(0, 2, 0)]
@@ -173,6 +180,55 @@ namespace Calculator.Test.Unit
            
             Assert.That(() => uut.Divide(a), Throws.TypeOf<LabCalculator.DivideByZeroException>());
 
+        }
+
+        [TestCase(3, 23)]
+        [TestCase(0, 20)]
+        [TestCase(-4, 16)]
+        [TestCase(20, 40)]
+        public void Add__AddaToAccumulator_Expectb(double a, double b)
+        {
+            uut.Clear();
+
+            uut.Add(20);
+
+            Assert.That(uut.Add(a), Is.EqualTo(b));
+        }
+
+        [TestCase(5, 15)]
+        [TestCase(0, 20)]
+        [TestCase(-7, 27)]
+        public void Subtract_SubtractaFromAccumulator_Expectb(double a, double b)
+        {
+            uut.Clear();
+
+            uut.Add(20);
+
+            Assert.That(uut.Subtract(a), Is.EqualTo(b));
+        }
+
+        [TestCase(0, 0)]
+        [TestCase(-4, -80)]
+        [TestCase(5, 100)]
+        [TestCase(-10, -200)]
+        public void Multiply_MultiplyaWithAccumulator_Expectb(double a, double b)
+        {
+            uut.Clear();
+
+            uut.Add(20);
+
+            Assert.That(uut.Multiply(a), Is.EqualTo(b));
+        }
+
+        [TestCase(5, 4)]
+        [TestCase(-5, -4)]
+        public void Divide_DivideAccumulatorWitha_Expectb(double a, double b)
+        {
+            uut.Clear();
+
+            uut.Add(20);
+
+            Assert.That(uut.Divide(a),Is.EqualTo(b));
         }
 
         static void Main(string[] args)
