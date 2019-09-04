@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="DivideByZeroException.cs" />
+    <Compile Include="NegativeBaseNumberFloatingExponentException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
