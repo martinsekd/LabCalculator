@@ -162,13 +162,19 @@ namespace Calculator.Test.Unit
         [TestCase(3,0)]
         public void Divide_DivideaWith0_Exception(double a, double b)
         {
-            //double sum = uut.Divide(a, b);
-            //Assert.Throws<DivideByZeroException>(() => uut.Divide(a, b));
-            
-                
-                Assert.That(() => uut.Divide(a, b), Throws.TypeOf<LabCalculator.DivideByZeroException>());
+            Assert.That(() => uut.Divide(a, b), Throws.TypeOf<LabCalculator.DivideByZeroException>());
             
         }
+
+        //hej
+        [TestCase(0)]
+        public void Divide_DivideaAccumulatorWith0_Exception(double a)
+        {
+           
+            Assert.That(() => uut.Divide(a), Throws.TypeOf<LabCalculator.DivideByZeroException>());
+
+        }
+
         static void Main(string[] args)
         {
 
