@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace LabCalculator
 {
-    //Thomas' testkommentar
     public class Calculator
     {
         public double Accumulator { get; private set; }
