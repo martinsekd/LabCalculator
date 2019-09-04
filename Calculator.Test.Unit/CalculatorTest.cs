@@ -160,6 +160,7 @@ namespace Calculator.Test.Unit
         }
 
         [TestCase(3,0)]
+        [TestCase(-3, 0)]
         public void Divide_DivideaWith0_Exception(double a, double b)
         {
             Assert.That(() => uut.Divide(a, b), Throws.TypeOf<LabCalculator.DivideByZeroException>());
