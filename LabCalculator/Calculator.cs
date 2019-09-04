@@ -68,17 +68,10 @@ namespace LabCalculator
         }
         public double Divide(double x, double y)
         {
-            //try {
-                if (y == 0)
+            if (y == 0)
                     throw new DivideByZeroException(y);
                 Accumulator = x / y;
-                
-            /*}
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine("Fejl. Der kan ikke divideres med "+e.number);
-            }*/
-            return x / y;
+                return x / y;
         }
 
         public double Divide(double a)
