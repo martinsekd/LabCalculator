@@ -167,7 +167,6 @@ namespace Calculator.Test.Unit
             
         }
 
-        //hej
         [TestCase(0)]
         public void Divide_DivideaAccumulatorWith0_Exception(double a)
         {
