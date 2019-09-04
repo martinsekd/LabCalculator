@@ -158,6 +158,17 @@ namespace Calculator.Test.Unit
             double sum = uut.Divide(a, b);
             Assert.That(sum, Is.EqualTo(d));
         }
+
+        [TestCase(3,0)]
+        public void Divide_DivideaWith0_Exception(double a, double b)
+        {
+            //double sum = uut.Divide(a, b);
+            //Assert.Throws<DivideByZeroException>(() => uut.Divide(a, b));
+            
+                
+                Assert.That(() => uut.Divide(a, b), Throws.TypeOf<LabCalculator.DivideByZeroException>());
+            
+        }
         static void Main(string[] args)
         {
 
