@@ -18,11 +18,11 @@ namespace Calculator.Test.Unit
         [TestCase(-2)]
         [TestCase(2.5)]
         [TestCase(0)]
-        public void Clear_AddaClearAccumulatorExpect0(double a)
+        public void Clear_AddaClearAccumulator_AccumulatorIs0(double a)
         {
             uut.Add(a);
             uut.Clear();
-            Assert.That(uut.Accumulator, Is.EqualTo(0));
+            Assert.That(uut.Accumulator, Is.Zero);
         }
 
         // Add
