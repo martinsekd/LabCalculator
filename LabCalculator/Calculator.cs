@@ -57,7 +57,7 @@ namespace LabCalculator
 
         public double Power(double x, double exp)
         {
-            if (x < 0 && exp % 1 > 0)
+            if (x < 0 && exp % 1 != 0)
                 throw new NegativeBaseNumberFloatingExponentException(exp);
             Accumulator = Math.Pow(x, exp);
             return Math.Pow(x, exp);
@@ -65,6 +65,8 @@ namespace LabCalculator
 
         public double Power(double a)
         {
+            if (Accumulator < 0 && a % 1 != 0)
+                throw new NegativeBaseNumberFloatingExponentException(a);
             Accumulator = Math.Pow(Accumulator, a);
             return Accumulator;
         }
